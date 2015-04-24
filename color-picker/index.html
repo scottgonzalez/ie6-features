@@ -1,0 +1,42 @@
+<!doctype html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title>Color Picker</title>
+	<script>
+	window.onload = function() {
+		var colorPicker = document.getElementById( "color-picker" );
+		function getColor() {
+			var color = colorPicker.ChooseColorDlg();
+			color = color.toString( 16 );
+			while ( color.length < 6 ) {
+				color = "0" + color;
+			}
+			color = "#" + color;
+			return color;
+		}
+
+		var favoriteColor = document.getElementById( "favorite-color" );
+		favoriteColor.attachEvent( "onclick", function() {
+			var color = getColor();
+			favoriteColor.value = color;
+			favoriteColor.style.backgroundColor = color;
+		});
+	};
+	</script>
+</head>
+<body>
+
+<object classid="clsid:3050f819-98b5-11cf-bb82-00aa00bdce0b" id="color-picker" width="0" height="0"></object>
+
+<div>
+	<label for="name">Name:</label>
+	<input id="name">
+</div>
+<div>
+	<label for="favorite-color">Favorite color:</label>
+	<input id="favorite-color">
+</div>
+
+</body>
+</html>
