@@ -1,0 +1,41 @@
+<!doctype html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title>Data Source</title>
+	<script>
+	window.onload = function() {
+		document.getElementById( "prev" ).attachEvent( "onclick", function() {
+			people.recordset.MovePrevious();
+			if ( people.recordset.BOF ) {
+				people.recordset.MoveFirst();
+			}
+			return false;
+		});
+		document.getElementById( "next" ).attachEvent( "onclick", function() {
+			people.recordset.MoveNext();
+			if ( people.recordset.EOF ) {
+				people.recordset.MoveLast();
+			}
+			return false;
+		});
+	};
+	</script>
+</head>
+<body>
+
+<object classid="clsid:333C7BC4-460F-11D0-BC04-0080C7055A83" id="people">
+	<param name="DataURL" value="people.csv">
+	<param name="UseHeader" value="true">
+</object>
+
+<button id="prev">Prev</button>
+<button id="next">Next</button>
+
+<p>There is a person named
+	<span datasrc="#people" datafld="lastname"></span>,
+	<span datasrc="#people" datafld="firstname"></span>.
+</p>
+
+</body>
+</html>

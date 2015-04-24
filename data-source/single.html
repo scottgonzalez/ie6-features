@@ -1,0 +1,20 @@
+<!doctype html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title>Data Source</title>
+</head>
+<body>
+
+<object classid="clsid:333C7BC4-460F-11D0-BC04-0080C7055A83" id="people">
+	<param name="DataURL" value="people.csv">
+	<param name="UseHeader" value="true">
+</object>
+
+<p>There is a person named
+	<span datasrc="#people" datafld="lastname"></span>,
+	<span datasrc="#people" datafld="firstname"></span>.
+</p>
+
+</body>
+</html>
